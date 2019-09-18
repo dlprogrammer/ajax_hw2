@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+
+
+    <!-- 引入properties -->
+    <properties resource="jdbc.properties"/>
+
+    <!-- 给实体类起别名 -->
+    <typeAliases>
+        <typeAlias type="com.dl.entity.Province" alias="Province"/>
+        <typeAlias type="com.dl.entity.City" alias="City"/>
+        <typeAlias type="com.dl.entity.Area" alias="Area"/>
+    </typeAliases>
+
+
+    <!-- 连接相关参数 -->
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- mapper文件的注册 -->
+    <mappers>
+        <mapper resource="com/dl/mapper/ProvinceDAOMapper.xml"></mapper>
+        <mapper resource="com/dl/mapper/CityDAOMapper.xml"></mapper>
+        <mapper resource="com/dl/mapper/AreaDAOMapper.xml"></mapper>
+    </mappers>
+
+</configuration>
